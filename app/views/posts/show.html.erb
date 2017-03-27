@@ -2,3 +2,7 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.content %></p>
 </div>
+
+<%= render 'partials/comment', comment: @comment, post: @post%>
+
+<p><%= @comment.content %></p>
