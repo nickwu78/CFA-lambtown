@@ -40,7 +40,7 @@ before_action :set_post, only: [:edit, :update, :destroy]
   end
 
   def show
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments
   end
@@ -56,7 +56,7 @@ before_action :set_post, only: [:edit, :update, :destroy]
 private
 
   def set_post
-    @post = Post.find(params[:id])
+    @post = Post.friendly.find(params[:id])
   end
 
   def post_params

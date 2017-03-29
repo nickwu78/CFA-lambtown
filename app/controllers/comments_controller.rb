@@ -15,12 +15,14 @@ before_action :set_comment, only: [:show, :edit, :update, :destroy]
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
-    @comment.post_id = params[:post_id]
+    puts params.inspect
+    @post = Post.friendly.find(params[:post_id])
+    @comment.post_id = @post.id
 
     respond_to do |format|
       if @comment.save
         # redirect to post relating to this controller
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to post_path(@comment.post), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
