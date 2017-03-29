@@ -28,12 +28,15 @@
             </a>
           </div>
         </nav>
+
         <div class="media-content">
           <div class="content">
             <p>
               <strong>User Name -- Time </strong>
               <br>
-              The post comment goes here. I need to try and work out how to get the post index method to find each post_id, and find the matching comment.
+              <% post.comments.each do |comment| %>
+                <%= render 'comments/show', comment: comment %>
+              <% end %>
               <br>
               <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
             </p>
