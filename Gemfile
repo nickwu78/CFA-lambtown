@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-github'
 gem "bulma-rails", "~> 0.4.0"
 gem 'friendly_id', '~> 5.1.0'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri
